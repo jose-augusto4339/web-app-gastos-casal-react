@@ -1,0 +1,30 @@
+[
+    {
+        "nome": "Cinema",
+        "imagem": "/images/tipo-gasto-cinema.svg"
+    },
+    {
+        "nome": "Comida",
+        "imagem": "/images/tipo-gasto-comida.svg"
+    },
+    {
+        "nome": "Estética",
+        "imagem": "/images/tipo-gasto-estetica.svg"
+    },
+    {
+        "nome": "Mercado",
+        "imagem": "/images/tipo-gasto-mercado.svg"
+    },
+    {
+        "nome": "Pet",
+        "imagem": "/images/tipo-gasto-pet.svg"
+    },
+    {
+        "nome": "Remédio",
+        "imagem": "/images/tipo-gasto-saude.svg"
+    },
+    {
+        "nome": "Saúde",
+        "imagem": "/images/tipo-gasto-viagem.svg"
+    }
+]
