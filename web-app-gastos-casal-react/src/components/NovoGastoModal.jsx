@@ -2,15 +2,11 @@ import NovoGastoModalInput from "./NovoGastoInput";
 import TipoGastoListSelection from "./TipoGastoListSelection";
 import ButtonSalvarGasto from "./ButtonSalvarGasto";
 import {useImperativeHandle, useRef, useState} from "react";
+import useGasto from "../hooks/useGasto";
 
 export default function NovoGastoModal({ref}){
     const dialog = useRef();
-    const [novoGastoValues, setNovoGastoValues] = useState({
-        nome: '',
-        data: '',
-        valor: '',
-        tipo: ''
-    })
+    const { salvaGasto, novoGastoValues, setNovoGastoValues } = useGasto();
 
     useImperativeHandle(ref, () => {
         return{
@@ -32,10 +28,27 @@ export default function NovoGastoModal({ref}){
         })
     }    
 
-    function handleGastoSelection(){
+    function handleGastoSelection(tipoGastoNome){
+        console.log(tipoGastoNome)
 
+        setNovoGastoValues((prevValues) => {
+            const novoGastoValues = {
+                ...prevValues,
+                tipo: tipoGastoNome
+            }
+
+            return novoGastoValues
+        })
     }
-    
+
+    function handleSaveClick(event){
+        event.preventDefault();
+
+        console.log(novoGastoValues);
+
+        salvaGasto(novoGastoValues);
+    }
+
     console.log(novoGastoValues);
 
     return (
@@ -62,7 +75,7 @@ export default function NovoGastoModal({ref}){
                         onValueChange={handleValueChange}
                     />
                     <TipoGastoListSelection onGastoSelect={handleGastoSelection}/>
-                    <ButtonSalvarGasto/>
+                    <ButtonSalvarGasto onClick={handleSaveClick}/>
                 </section>
             </form>
         </dialog>

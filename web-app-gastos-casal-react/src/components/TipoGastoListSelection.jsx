@@ -1,13 +1,20 @@
 import tipoGastos from '../assets/tipos-gasto.json'
 
-export default function TipoGastoListSelection(){
+export default function TipoGastoListSelection({onGastoSelect}){
+
+    function handleClick(gastoTipoNome){
+        onGastoSelect(gastoTipoNome);
+    }
+
     return (
-        <ul className="flex flex-wrap gap-4 w-[82%] mx-auto">
-            {tipoGastos.map((gasto) => (
-                <li key={gasto.nome}>
-                    <img src={gasto.imagem}/>
-                </li>
-            ))}
-        </ul>
+        <div className="inline-block mx-auto">
+            <ul className="flex flex-wrap justify-center gap-4">
+                {tipoGastos.map((gasto) => (
+                    <li key={gasto.nome} onClick={() => handleClick(gasto.nome)}>
+                        <img src={gasto.imagem}/>
+                    </li>
+                ))}
+            </ul>
+        </div>
     );
 }

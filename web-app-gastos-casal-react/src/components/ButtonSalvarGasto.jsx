@@ -1,4 +1,4 @@
-export default function ButtonSalvarGasto(){
+export default function ButtonSalvarGasto({onClick}){
     return (
         <>
             <button 
@@ -12,6 +12,7 @@ export default function ButtonSalvarGasto(){
                     my-10
                 "
                 type="button"
+                onClick={onClick}
             >
                 Salvar
             </button>
